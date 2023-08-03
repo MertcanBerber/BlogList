@@ -1,0 +1,36 @@
+﻿@using AksamWeb.ViewModels
+@model List<BlogListViewModel>
+
+<div class="row">
+    <div class="col-12">
+        <a class="btn btn-primary" href="/Main/AddBlog">Yeni Kayıt Ekle</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>#Id</td>
+                    <td>Başlık</td>
+                    <td>Açıklama</td>
+                    <td>Oluşturma Tarihi</td>
+                    <td>Durum</td>
+                    <td>İşlemler</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>@item.CreateDate</td>
+                        <td>@item.IsActive</td>
+                        <td>
+                            <a href="/Main/Guncelle/@item.Id" class="btn btn-success">Güncelle</a>
+                            <a href="/Main/Delete/@item.Id" class="btn btn-danger">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

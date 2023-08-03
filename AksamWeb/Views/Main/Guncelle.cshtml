@@ -1,0 +1,29 @@
+﻿@using AksamWeb.DataOperations.Entities
+@model BlogPost
+@{
+    var classAttribute = new Dictionary<string, object>() { { "class", "form-control" } };
+}
+<div class="row">
+    <div class="col-12">
+        <form action="/Main/Guncelle" method="post">
+            @Html.HiddenFor(p=>p.Id)
+            @Html.HiddenFor(p=>p.CreatedOn)
+            <div class="form-group">
+                @Html.DisplayNameFor(p=>p.Title)
+                @Html.TextBoxFor(p=>p.Title,classAttribute)
+                @Html.ValidationMessageFor(p=>p.Title)
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(p=>p.Description)
+                @Html.TextBoxFor(p=>p.Description,classAttribute)
+                @Html.ValidationMessageFor(p=>p.Description)
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(p=>p.Content)
+                @Html.TextAreaFor(p=>p.Content,classAttribute)
+                @Html.ValidationMessageFor(p=>p.Content)
+            </div>
+            <button type="submit">Güncelle</button>
+        </form>
+    </div>
+</div>

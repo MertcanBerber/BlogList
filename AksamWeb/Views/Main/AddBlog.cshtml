@@ -1,0 +1,27 @@
+﻿@using AksamWeb.ViewModels
+@model BlogAddViewModel
+@{
+    var classAttribute = new Dictionary<string, object>() { { "class", "form-control" } };
+}
+<div class="row">
+    <div class="col-12">
+        <form action="/Main/AddBlog" method="post">
+            <div class="form-group">
+                @Html.DisplayNameFor(p=>p.Title)
+                @Html.TextBoxFor(p=>p.Title,classAttribute)
+                @Html.ValidationMessageFor(p=>p.Title)
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(p=>p.Description)
+                @Html.TextBoxFor(p=>p.Description,classAttribute)
+                @Html.ValidationMessageFor(p=>p.Description)
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(p=>p.Content)
+                @Html.TextAreaFor(p=>p.Content,classAttribute)
+                @Html.ValidationMessageFor(p=>p.Content)
+            </div>
+            <button type="submit">Gönder</button>
+        </form>
+    </div>
+</div>
